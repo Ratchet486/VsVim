@@ -25,6 +25,7 @@
          will fail and trigger a bulid error 
     -->
     <DeployExtension Condition="'$(AppVeyor)' != ''">False</DeployExtension>
+    <DeployExtension Condition="'$(VisualStudioVersion)' != '15.0'">False</DeployExtension>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
