@@ -46,7 +46,7 @@ namespace Vim.VisualStudio
             _exportProvider = _componentModel.DefaultExportProvider;
             _vim = _exportProvider.GetExportedValue<IVim>();
             _vsAdapter = _exportProvider.GetExportedValue<IVsAdapter>();
-            NoteStarted();
+            // NoteStarted();
         }
 
         protected override void Dispose(bool disposing)

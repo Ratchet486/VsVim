@@ -129,6 +129,9 @@
   </ItemGroup>
   <!-- TODO: Clean up all of these item groups -->
   <ItemGroup>
+    <Content Include="telemetry.txt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="VsVim_large.png">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -148,11 +151,6 @@
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup Condition="Exists($(VsVimTelemetryFilePath))">
-    <Content Include="$(VsVimTelemetryFilePath)">
-      <IncludeInVsix>true</IncludeInVsix>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">

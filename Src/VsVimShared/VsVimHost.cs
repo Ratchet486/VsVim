@@ -196,7 +196,8 @@ namespace Vim.VisualStudio
             ISharedServiceFactory sharedServiceFactory,
             IVimApplicationSettings vimApplicationSettings,
             IExtensionAdapterBroker extensionAdapterBroker,
-            SVsServiceProvider serviceProvider)
+            SVsServiceProvider serviceProvider,
+            [Import(AllowDefault = true)] ITelemetry telemetry = null)
             : base(textBufferFactoryService, textEditorFactoryService, textDocumentFactoryService, editorOperationsFactoryService)
         {
             _vsAdapter = adapter;
@@ -212,6 +213,11 @@ namespace Vim.VisualStudio
 
             uint cookie;
             _vsMonitorSelection.AdviseSelectionEvents(this, out cookie);
+
+            if (telemetry != null)
+            {
+                telemetry.WriteEvent("VsVim Started");
+            }
         }
 
         public override void CloseAllOtherTabs(ITextView textView)

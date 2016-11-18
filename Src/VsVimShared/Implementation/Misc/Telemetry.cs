@@ -71,7 +71,7 @@ namespace Vim.VisualStudio.Implementation.Misc
         {
             try
             {
-                var dir = Path.GetDirectoryName(typeof(Telemetry).Assembly.CodeBase);
+                var dir = Path.GetDirectoryName(typeof(Telemetry).Assembly.Location);
                 var filePath = Path.Combine(dir, "telemetry.txt");
                 return File.ReadAllText(filePath).Trim();
             }
